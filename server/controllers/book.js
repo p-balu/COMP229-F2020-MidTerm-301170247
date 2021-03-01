@@ -11,15 +11,17 @@ let Book = require("../models/book");
 
 //display book list
 module.exports.displayBookList = (req, res, next) => {
-  Book.find((err, bookList) => {
-    if (err) {
-      return console.error(err);
-    } else {
-      //console.log(BookList);
+  Book.find({})
+    .sort("name")
+    .exec(function (err, bookList) {
+      if (err) {
+        return console.error(err);
+      } else {
+        //console.log(BookList);
 
-      res.render("book/list", { title: "Books", BookList: bookList });
-    }
-  });
+        res.render("book/list", { title: "Books", BookList: bookList });
+      }
+    });
 };
 
 //display Add Page
