@@ -27,11 +27,14 @@ router.get("/edit/:id", bookController.displayEditPage);
  * add your code to
  * POST Route for processing the Edit page - UPDATE Operation
  */
+
+//post method for edit operation
 router.post("/edit/:id", bookController.processEditPage);
 
 /* add your code to
  *  GET to perform  Deletion - DELETE Operation
  */
+//handle delete
 router.get("/delete/:id", bookController.processDeletePage);
 
 module.exports = router;
